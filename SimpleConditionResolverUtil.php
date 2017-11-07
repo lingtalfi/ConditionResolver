@@ -43,7 +43,7 @@ class SimpleConditionResolverUtil
      * @param array $pool , an array of key => variable
      * @return bool, whether or not the condition string is successful
      */
-    public function evaluate($conditionString, array $pool)
+    public function evaluate($conditionString, array $pool = [])
     {
         $this->parenthesisBlocks = []; // reset
         $tags = self::getTags($pool);
