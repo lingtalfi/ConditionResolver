@@ -61,6 +61,7 @@ class SimpleConditionResolverUtil
         }, $conditionString);
 
 
+
         //--------------------------------------------
         // NOW RESOLVE EXPRESSION STRING
         //--------------------------------------------
@@ -148,7 +149,14 @@ class SimpleConditionResolverUtil
         //--------------------------------------------
         // REPLACING VARIABLES WITH THEIR REAL VALUES
         //--------------------------------------------
-        $comparisonBlock = str_replace(array_keys($tags), array_values($tags), $comparisonBlock);
+        $validTags = array_filter($tags, function ($v) {
+            return is_scalar($v);
+        });
+        uksort($validTags, function ($tagA, $tagB) {
+            return strlen($tagA) < strlen($tagB);
+        });
+
+        $comparisonBlock = str_replace(array_keys($validTags), array_values($validTags), $comparisonBlock);
 
 
         //--------------------------------------------
@@ -172,7 +180,7 @@ class SimpleConditionResolverUtil
         $left = trim($p[0]);
         $right = trim($p[1]);
 
-        a("this case $comparisonBlock, $operator, $left, $right");
+
         switch ($operator) {
             case "=":
                 return ($left === $right);
