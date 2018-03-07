@@ -185,6 +185,18 @@ class SimpleConditionResolverUtil
             case "=":
                 return ($left === $right);
                 break;
+            case "<":
+                return ($left < $right);
+                break;
+            case ">":
+                return ($left > $right);
+                break;
+            case "<=":
+                return ($left <= $right);
+                break;
+            case ">=":
+                return ($left >= $right);
+                break;
             case ">=<":
             case "><":
                 $members = explode(',', $right, 2);
