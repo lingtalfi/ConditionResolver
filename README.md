@@ -69,6 +69,10 @@ found in the **doc/simple-conditions-language.md** document.
 History Log
 ------------------    
     
+- 1.1.0 -- 2018-03-07
+
+    - enhance SimpleConditionResolverUtil evaluate can now understand true, false and null values.
+    
 - 1.0.3 -- 2018-03-07
 
     - fix SimpleConditionResolverUtil evaluate forgot <, >, <= and >= operators

@@ -61,7 +61,6 @@ class SimpleConditionResolverUtil
         }, $conditionString);
 
 
-
         //--------------------------------------------
         // NOW RESOLVE EXPRESSION STRING
         //--------------------------------------------
@@ -181,6 +180,8 @@ class SimpleConditionResolverUtil
         $right = trim($p[1]);
 
 
+        a("here", $left, $right);
+
         switch ($operator) {
             case "=":
                 return ($left === $right);
@@ -223,6 +224,13 @@ class SimpleConditionResolverUtil
     {
         $ret = [];
         foreach ($pool as $k => $v) {
+            if (true === $v) {
+                $v = 'true';
+            } elseif (false === $v) {
+                $v = 'false';
+            } elseif (null === $v) {
+                $v = 'null';
+            }
             $ret['$' . $k] = $v;
         }
         return $ret;
