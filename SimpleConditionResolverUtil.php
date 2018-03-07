@@ -180,7 +180,6 @@ class SimpleConditionResolverUtil
         $right = trim($p[1]);
 
 
-        a("here", $left, $right);
 
         switch ($operator) {
             case "=":
