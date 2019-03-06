@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ConditionResolver;
+namespace Ling\ConditionResolver;
 
 
 class SimpleConditionResolverUtil
